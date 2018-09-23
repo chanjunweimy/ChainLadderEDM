@@ -24,7 +24,7 @@ importMethodsFrom(cplm, show, predict, vcov, residuals, resid, coef, fitted, plo
 importMethodsFrom(Matrix, summary)
 
 export(MackChainLadder, MunichChainLadder, BootChainLadder,
-       MultiChainLadder, MultiChainLadder2)
+       MultiChainLadder, MultiChainLadder2, QuantileIFRS17)
 export(triangle,as.triangle)
 export(chainladder)
 export(getLatestCumulative)
