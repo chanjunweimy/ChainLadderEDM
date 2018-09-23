@@ -9,7 +9,7 @@
 }
 \usage{
 MackChainLadder(Triangle, weights = 1, alpha=1, est.sigma="log-linear",
-tail=FALSE, tail.se=NULL, tail.sigma=NULL, mse.method="Mack")
+tail=FALSE, tail.se=NULL, tail.sigma=NULL, mse.method="Mack", Quantil=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -65,6 +65,9 @@ tail=FALSE, tail.se=NULL, tail.sigma=NULL, mse.method="Mack")
     as in Murphy and BBMW. 
     Refer to References below.
     }  
+  \item{Quantil}{
+    quantile at which the reserves are estimated. If quantile is not given, 0.5 is used as default. Refer to References (Probability of sufficiency) below for quantile estimation.
+  }
 }
 \details{
   Following Mack's 1999 paper let \eqn{C_{ik}} denote the cumulative loss 
@@ -97,6 +100,8 @@ tail=FALSE, tail.se=NULL, tail.sigma=NULL, mse.method="Mack")
   where \code{y} is the vector of claims at development period
   \eqn{k+1} and \code{x} is  the vector of claims at development period
   \eqn{k}. 
+  
+  In this version, the skewness of the overall reserve risk distribution and of each accident year is provided. For details of the underlying calculations, see https://ssrn.com/abstract=2344297     
 
 }
 \value{
@@ -131,6 +136,9 @@ tail=FALSE, tail.se=NULL, tail.sigma=NULL, mse.method="Mack")
   \item{alpha}{alphas used.}
   \item{tail}{tail factor used. If tail was set to TRUE the output will
     include the linear model used to estimate the tail factor}
+  \item{Skewness}{Skewness of the distribution}
+  \item{Quantile}{Reserves at the desired quantile using the Cornish-Fisher expansion}
+  
 }
 \references{
 \cite{Thomas Mack. Distribution-free calculation of the standard error of chain ladder reserve estimates. \emph{Astin Bulletin}. Vol. 23. No 2. 1993. pp.213:225}
@@ -145,6 +153,10 @@ Actuarial Society} - Arlington, Virginia 1994: LXXXI 154-222}
   The Mean Square Error of Prediction in the Chain Ladder Reserving Method
   (Mack and Murphy Revisited).
   \emph{Astin Bulletin} Vol. 36. 2006. pp.521:542
+  }
+
+\cite{Dal Moro, Krvavych.
+  Probability of sufficiency of Solvency II Reserve risk margins: Practical approximations. \emph{ASTIN Bulletin}, 47(3), 737-785
   }
 
 }
